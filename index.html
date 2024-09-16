@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="./styles/style.css"/>
+        <script src="app.js"></script>
+    </head>
+    <body>
+        <div class="form">
+            <h4>Zerodha Discrepancies Filler</h4>
+            <label for="input">JSON Input: </label>
+            <textarea id="input" name="input"></textarea>
+
+            <div class="type-box">
+                <label>Type:</label>
+                <input type="radio" id="other" name="type" value="other" checked>
+                <label for="radio">Other</label>
+
+                <input type="radio" id="ipo" name="type" value="ipo">
+                <label for="radio">IPO</label>
+            </div>
+
+            <div class="action">
+                <button id="submit">Fill Discrepancies</button>
+            </div>
+        </div>
+    </body>
+</html>

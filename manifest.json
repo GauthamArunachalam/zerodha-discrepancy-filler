@@ -1,0 +1,10 @@
+{
+    "manifest_version" : 3,
+    "name" : "Zerodha discrepancy filler",
+    "description" : "A extension that can take JSON response and fill the discrepancies in Zerodha",
+    "version" : "1.0",
+    "action" : {
+        "default_popup" : "index.html",
+        "default_icon" : "fav_icon.png"
+    }
+}

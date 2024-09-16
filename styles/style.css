@@ -1,0 +1,26 @@
+html, body {
+    height: auto;
+    min-height: auto;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+#input {
+    height: 300px;
+    width: 450px;
+}
+
+.form {
+    padding: 8px;
+}
+
+.action {
+    padding: 10px 0px 0px;
+}
+
+.type-box {
+    padding: 10px 0px;
+}
