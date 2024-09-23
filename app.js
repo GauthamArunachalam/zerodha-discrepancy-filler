@@ -1,53 +1,58 @@
-async function filler(restAPIData) {
-    var addTradeButton = document.getElementsByClassName("add-external-trade");
-    console.log(addTradeButton);
-    addTradeButton = addTradeButton[0];
-    console.log(addTradeButton);
-    addTradeButton.click();
-    console.log(restAPIData);
+async function filler(data, type) {
 
-    await new Promise(r => setTimeout(r, 1000));
+    var addTradeButton = document.getElementsByClassName("add-external-trade")[0];
 
-    var modelContainer = document.getElementsByClassName("modal-container");
-    console.log(modelContainer);
-    var ab = modelContainer[0];
-    console.log(ab);
-    var datePicker = document.getElementsByName("date")[0];
-    console.log(datePicker);
-    datePicker.value = "2024-07-01";
-    const inputEvent = new Event('input', { bubbles: true });
-    const changeEvent = new Event('change', { bubbles: true });
-    
-    // Trigger both events to simulate a user input
-    datePicker.dispatchEvent(inputEvent);
-    datePicker.dispatchEvent(changeEvent);
+    for (row of data) {
 
-    var avgPrice = ab.querySelector("input[label='Avg. price']");
-    console.log(avgPrice);
-    avgPrice.click();
-    avgPrice.value = 8;
-    avgPrice.dispatchEvent(new Event("input"))
+        console.log(row);
+        addTradeButton.click();
 
+        await new Promise(r => setTimeout(r, 1000));
 
-    var qty = ab.querySelector("input[label='Qty.']");
-    console.log(qty);
-    qty.focus();
-    qty.value = 13.392;
-    qty.dispatchEvent(new Event("input"))
+        var modelContainer = document.getElementsByClassName("modal-container")[0];
 
-    var typeDD = ab.getElementsByTagName("select")[0];
-    console.log(typeDD);
-    typeDD.focus();
-        
-    typeDD.value = "discrepant";
-    typeDD.dispatchEvent(new Event("change"))
+        var datePicker = document.getElementsByName("date")[0];
 
-    await new Promise(r => setTimeout(r, 1000));
+        var dateVal = row["order_execution_time"];
+        dateVal = dateVal.substring(0, dateVal.indexOf("T"));
 
-    var submitButton = ab.getElementsByTagName("button")[0];
-    console.log(submitButton);
-    submitButton.click();
+        datePicker.value = dateVal;
 
+        datePicker.dispatchEvent(new Event('input', {bubbles: true}));
+        datePicker.dispatchEvent(new Event('change', {bubbles: true}));
+
+        var avgPrice = modelContainer.querySelector("input[label='Avg. price']");
+        avgPrice.click();
+        var price = row["price"];
+        avgPrice.value = price;
+        avgPrice.dispatchEvent(new Event("input"));
+
+        var qty = modelContainer.querySelector("input[label='Qty.']");
+        qty.focus();
+        var quantity = row["quantity"];
+        qty.value = quantity;
+        qty.dispatchEvent(new Event("input"));
+
+        var typeDD = modelContainer.getElementsByTagName("select")[0];
+        typeDD.focus();
+        typeDD.value = type;
+        typeDD.dispatchEvent(new Event("change"))
+
+        await new Promise(r => setTimeout(r, 1000));
+
+        var submitButton = modelContainer.getElementsByTagName("button")[0];
+        submitButton.click();
+
+        await new Promise(r => setTimeout(r, 1000));
+
+        var errorMsg = document.getElementsByClassName("message");
+        if (errorMsg.length > 0) {
+            console.log("error");
+            return "error";
+        }
+    }
+
+    return "success";
 }
 
 
@@ -57,7 +62,7 @@ window.onload = function() {
     button.addEventListener("click", function() {
         var inputJSON = document.getElementById("input").value;
         var isOther = document.getElementById("other").checked;
-        var type = isOther ? "other" : "ipo";
+        var type = isOther ? "discrepant" : "ipo";
     
         var data = null
         try {
@@ -70,18 +75,18 @@ window.onload = function() {
                         chrome.scripting.executeScript({
                             target : {tabId : tab.id},
                             function : filler,
-                            args: [data]
+                            args: [res, type]
                         }
-                    )
+                    ).then(result => {
+                        console.log(result);
+                    })
                 });
             }
-            //console.log(data);
         } catch(err) {
             
         }
 
-        //window.close();
-
+        window.close();
     });
 }
 

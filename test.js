@@ -16,14 +16,5 @@ var data = {
 
 var d = data["order_execution_time"];
 console.log(d);
-var a = new Date(d);
-console.log(typeof d);
-console.log(a);
-console.log(typeof a);
-
-console.log(a.getDate());
-console.log(a.toDateString());
-
-var b = new Date(a.toDateString());
-console.log(b);
-console.log(typeof b);
+var date = d.substring(0, d.indexOf("T"));
+console.log(date);
