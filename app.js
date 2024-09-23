@@ -57,6 +57,9 @@ async function filler(data, type) {
 
 
 window.onload = function() {
+
+    
+
     const button = document.getElementById("submit");
 
     button.addEventListener("click", function() {

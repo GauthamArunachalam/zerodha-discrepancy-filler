@@ -1,16 +1,22 @@
+* {
+    box-sizing: border-box;
+}
+
 html, body {
     height: auto;
     min-height: auto;
 }
 
 body {
-    margin: 0px;
+    height: 350px;
+    width: 450px;
     padding: 0px;
+    font-family: sans-serif;
 }
 
 #input {
     height: 300px;
-    width: 450px;
+    width: 420px;
 }
 
 .form {
@@ -23,4 +29,24 @@ body {
 
 .type-box {
     padding: 10px 0px;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: 600;
+    padding: 5px 0px;
+    color: #387ed1;
+}
+
+.label {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+button {
+    background-color: #387ed1;
+    color: #FFFFFF;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
 }
