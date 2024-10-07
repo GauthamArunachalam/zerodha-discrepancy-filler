@@ -3,8 +3,6 @@ async function filler(data, type) {
     var addTradeButton = document.getElementsByClassName("add-external-trade")[0];
 
     for (row of data) {
-
-        console.log(row);
         addTradeButton.click();
 
         await new Promise(r => setTimeout(r, 1000));
@@ -45,7 +43,7 @@ async function filler(data, type) {
 
         await new Promise(r => setTimeout(r, 1000));
 
-        var errorMsg = document.getElementsByClassName("message");
+        var errorMsg = document.getElementsByClassName("icon-alert-triangle");
         if (errorMsg.length > 0) {
             console.log("error");
             return "error";
@@ -58,7 +56,16 @@ async function filler(data, type) {
 
 window.onload = function() {
 
-    
+    chrome.tabs.query({active: true, currentWindow: true})
+    .then(([tab]) => {
+        var url = tab["url"];
+        if (url.indexOf("console.zerodha.com/portfolio/holdings/discrepancy/EQ") == -1) {
+            var  form = document.getElementById("form");
+            var errorDiv = document.getElementById("not-applicable");
+            errorDiv.classList.add("show");
+            form.classList.add("no-show");
+        }
+    });
 
     const button = document.getElementById("submit");
 
@@ -81,15 +88,41 @@ window.onload = function() {
                             args: [res, type]
                         }
                     ).then(result => {
+                        var res = result[0];
                         console.log(result);
+                        console.log(res);
+                        var response = res["result"];
+                        if (response == "success") {
+                            chrome.notifications.create("success-message", 
+                                {
+                                    type : 'basic',
+                                    iconUrl : 'icons/fav_icon.png',
+                                    title : 'All discrepancies added successfully!',
+                                    message : 'All discrepancies added successfully!'
+                            });
+                        } else {
+                            chrome.notifications.create("error-message",
+                                {
+                                    type : "basic",
+                                    iconUrl : "icons/fav_icon.png",
+                                    title : "Discrepancies failed",
+                                    message : "Discrepancies failed :("
+                            });
+                        }
                     })
                 });
             }
         } catch(err) {
-            
+            chrome.notifications.create("invalid-input", 
+                {
+                    type : "basic",
+                    iconUrl : "icons/fav_icon.png",
+                    title : "Invalid input",
+                    message : "Invalid input :("
+            });
         }
 
-        window.close();
+        //window.close();
     });
 }
 

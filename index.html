@@ -4,7 +4,7 @@
         <script src="app.js"></script>
     </head>
     <body>
-        <div class="form">
+        <div id="form" class="form">
             <div class="title">Zerodha Discrepancies Filler</div>
             <label for="input" class="label">JSON Input: </label>
             <textarea id="input" name="input"></textarea>
@@ -20,6 +20,14 @@
 
             <div class="action">
                 <button id="submit">Fill Discrepancies</button>
+            </div>
+        </div>
+
+        <div id="not-applicable" class="not-applicable">
+            <div class="title">Zerodha Discrepancies Filler</div>
+            <div class="warning">
+                <img src="./icons/forbidden.png" class="forbidden"/>
+                <div>Extension is not not applicable for this URL</div>
             </div>
         </div>
     </body>

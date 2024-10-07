@@ -50,3 +50,30 @@ button {
     padding: 12px;
     border-radius: 6px;
 }
+
+.not-applicable {
+    display: none;
+}
+
+.show {
+    display: block;
+    font-size: 22px;
+}
+
+.no-show {
+    display: none;
+}
+
+.warning {
+    /* justify-content: center;
+    align-items: center; */
+    display: grid;
+    padding: 10px;
+    place-items: center;
+}
+
+.forbidden {
+    height: 250px;
+    width: 250px;
+}
+
