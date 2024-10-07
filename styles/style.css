@@ -65,8 +65,6 @@ button {
 }
 
 .warning {
-    /* justify-content: center;
-    align-items: center; */
     display: grid;
     padding: 10px;
     place-items: center;
