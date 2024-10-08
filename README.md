@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="icons/fav_icon.png">
+    <img src="/src/icons/fav_icon.png">
 </div>
 
 # Zerodha discrepancy filler
