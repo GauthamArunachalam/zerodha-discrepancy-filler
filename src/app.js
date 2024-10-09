@@ -109,6 +109,7 @@ window.onload = function() {
                                     message : "Discrepancies failed :("
                             });
                         }
+                        window.close();
                     })
                 });
             }
@@ -120,9 +121,8 @@ window.onload = function() {
                     title : "Invalid input",
                     message : "Invalid input :("
             });
+            window.close();
         }
-
-        //window.close();
     });
 }
 
