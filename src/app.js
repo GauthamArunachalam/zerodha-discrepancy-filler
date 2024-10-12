@@ -82,36 +82,41 @@ window.onload = function() {
             if (res.length > 0) {
                 chrome.tabs.query({active : true, currentWindow : true})
                     .then(([tab]) => {
+                        var  form = document.getElementById("form");
+                        var loader = document.getElementById("loader");
+                        loader.classList.remove("no-show");
+                        loader.classList.add("show");
+                        loader.classList.add("warning");
+                        form.classList.add("no-show");
                         chrome.scripting.executeScript({
                             target : {tabId : tab.id},
                             function : filler,
                             args: [res, type]
-                        }
-                    ).then(result => {
-                        var res = result[0];
-                        console.log(result);
-                        console.log(res);
-                        var response = res["result"];
-                        if (response == "success") {
-                            chrome.notifications.create("success-message", 
-                                {
-                                    type : 'basic',
-                                    iconUrl : 'icons/fav_icon.png',
-                                    title : 'All discrepancies added successfully!',
-                                    message : 'All discrepancies added successfully!'
-                            });
-                        } else {
-                            chrome.notifications.create("error-message",
-                                {
-                                    type : "basic",
-                                    iconUrl : "icons/fav_icon.png",
-                                    title : "Discrepancies failed",
-                                    message : "Discrepancies failed :("
-                            });
-                        }
-                        window.close();
-                    })
-                });
+                        }).then(result => {
+                            var res = result[0];
+                            console.log(result);
+                            console.log(res);
+                            var response = res["result"];
+                            if (response == "success") {
+                                chrome.notifications.create("success-message", 
+                                    {
+                                        type : 'basic',
+                                        iconUrl : 'icons/fav_icon.png',
+                                        title : 'All discrepancies added successfully!',
+                                        message : 'All discrepancies added successfully!'
+                                    });
+                            } else {
+                                chrome.notifications.create("error-message",
+                                    {
+                                        type : "basic",
+                                        iconUrl : "icons/fav_icon.png",
+                                        title : "Discrepancies failed",
+                                        message : "Discrepancies failed :("
+                                });
+                            }
+                            window.close();
+                        })
+                    });
             }
         } catch(err) {
             chrome.notifications.create("invalid-input", 

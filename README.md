@@ -24,6 +24,8 @@ A chrome extension that can take JSON response as input and fill the discrepanci
 <img src="images/form-valid-input.png"/>
 - The extension will start to will the records one by one.
 
+**Note** : Do not close the chrome extension window while discrepancies are added. Closing this can lead to unexpected failures and the adding process will be terminated intermittently.
+
 
 ## Features
 
@@ -39,4 +41,4 @@ A chrome extension that can take JSON response as input and fill the discrepanci
 
 ## Supported Browseer
 
-[![Chrome](assets/chrome.png "Chrome")](https://chrome.google.com/webstore/detail/octotree/bkhaagjahfmjljalopjnoealnfndnagc)
+[![Chrome](assets/chrome.png "Chrome")]
