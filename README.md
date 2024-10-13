@@ -27,6 +27,11 @@ A chrome extension that can take JSON response as input and fill the discrepanci
 **Note** : Do not close the chrome extension window while discrepancies are added. Closing this can lead to unexpected failures and the adding process will be terminated intermittently.
 
 
+## Demo
+
+[![Watch the video](/src/icons/fav_icon.png)](https://raw.githubusercontent.com/GauthamArunachalam/repository/branch/demo.mkv)
+
+
 ## Features
 
 - the extension will work only in chrome zerodha discrepancy console. In other places an warning message
