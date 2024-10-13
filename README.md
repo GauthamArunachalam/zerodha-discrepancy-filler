@@ -29,7 +29,7 @@ A chrome extension that can take JSON response as input and fill the discrepanci
 
 ## Demo
 
-[![Watch the video](/src/icons/fav_icon.png)](https://raw.githubusercontent.com/GauthamArunachalam/repository/branch/demo.mkv)
+[![Watch the video](/src/icons/fav_icon.png)](https://raw.githubusercontent.com/GauthamArunachalam/repository/main/demo.mkv)
 
 
 ## Features
@@ -46,4 +46,4 @@ A chrome extension that can take JSON response as input and fill the discrepanci
 
 ## Supported Browseer
 
-[![Chrome](assets/chrome.png "Chrome")]
+[![Chrome](images/chrome.png "Chrome")]
