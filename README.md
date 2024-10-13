@@ -29,7 +29,7 @@ A chrome extension that can take JSON response as input and fill the discrepanci
 
 ## Demo
 
-[![Watch the video](/src/icons/fav_icon.png)](https://raw.githubusercontent.com/GauthamArunachalam/zerodha-discrepancy-filler/main/demo.mkv)
+![Watch the video](https://raw.githubusercontent.com/GauthamArunachalam/zerodha-discrepancy-filler/main/demo.mp4)
 
 
 ## Features
