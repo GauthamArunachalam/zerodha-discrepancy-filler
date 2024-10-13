@@ -1,20 +1,17 @@
 {
     "manifest_version" : 3,
     "name" : "Zerodha discrepancy filler",
-    "description" : "A extension that can take JSON response and fill the discrepancies in Zerodha",
+    "description" : "An extension that can take JSON response and fill the discrepancies in Zerodha",
     "version" : "1.0",
     "action" : {
         "default_popup" : "index.html",
         "default_icon" : "icons/fav_icon.png"
     },
     "icons" :{
-        "16" : "icons/fav_icon.png",
-        "32" : "icons/fav_icon.png",
+        "16" : "icons/fav_icon16.png",
+        "32" : "icons/fav_icon32.png",
         "48" : "icons/fav_icon.png",
-        "128" : "icons/fav_icon.png"
+        "128" : "icons/fav_icon128.png"
     },
-    "permissions" : ["tabs", "activeTab", "scripting", "notifications"],
-    "host_permissions" : [
-        "https://console.zerodha.com/portfolio/holdings/discrepancy/*"
-    ]
+    "permissions" : ["tabs", "activeTab", "scripting", "notifications"]
 }
