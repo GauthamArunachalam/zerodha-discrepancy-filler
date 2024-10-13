@@ -26,14 +26,19 @@ A chrome extension that can take JSON response as input and fill the discrepanci
 
 **Note** : Do not close the chrome extension window while discrepancies are added. Closing this can lead to unexpected failures and the adding process will be terminated intermittently.
 
+## Warnings
+
+- When ever auto filling fails in between we **recommend** to ***delete the partially added entries and start from the beginning***
+- Common reasons for failure 
+    - Invalid input data
+    - Some UI elements changed in Zerodha console
+    - Zerodha API throws 429 error.
+
 
 ## Demo
 
 
 https://github.com/user-attachments/assets/ef0c736f-33bd-436d-a4a1-ff8663238cee
-
-
-
 
 
 ## Features
