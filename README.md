@@ -30,7 +30,10 @@ A chrome extension that can take JSON response as input and fill the discrepanci
 ## Demo
 
 
-https://github.com/user-attachments/assets/6e7ad7b6-b652-4c7b-9a85-a61bfbe4e27f
+https://github.com/user-attachments/assets/ef0c736f-33bd-436d-a4a1-ff8663238cee
+
+
+
 
 
 ## Features
