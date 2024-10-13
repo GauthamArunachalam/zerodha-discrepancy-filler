@@ -46,4 +46,4 @@ A chrome extension that can take JSON response as input and fill the discrepanci
 
 ## Supported Browseer
 
-[![Chrome](images/chrome.png "Chrome")]
+![Chrome](images/chrome.png "Chrome")
